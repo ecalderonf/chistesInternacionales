@@ -8,8 +8,10 @@ import jakarta.validation.constraints.Positive;
 @Table(name = "calificacion")
 public class Calificacion {
     @Id
-    private Long jokeId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long calificacionId;
     @NotNull
+    private Long jokeId;
     private String category;
     @NotNull
     @Positive
@@ -22,6 +24,14 @@ public class Calificacion {
     }
 
     public Calificacion() {
+    }
+
+    public Long getCalificacionId() {
+        return calificacionId;
+    }
+
+    public void setCalificacionId(Long calificacionId) {
+        this.calificacionId = calificacionId;
     }
 
     public Long getJokeId() {
